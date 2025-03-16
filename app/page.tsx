@@ -1,103 +1,86 @@
 import Image from "next/image";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+	return (
+		<>
+			<header className='font-involve h-full bg-[#141414] text-white flex flex-col items-center md:px-[50px] px-6 md:rounded-b-[100px] rounded-b-[50px]'>
+				{/* Логотип */}
+				<a href='' className='mt-[30px]'>
+					<Image src='/logo.svg' alt='logo' width={274} height={48} />
+				</a>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+				{/* Картинка */}
+				<div className='mt-12 w-full flex flex-col items-center relative'>
+					<Image
+						src='/astronaut.jpg'
+						alt='Astronaut'
+						width={5000}
+						height={500}
+						className='md:rounded-[50px] rounded-xl'
+					/>
+					<div className='bg-white text-black lg:p-6 p-4 mt-3 rounded-[35px] text-sm lg:w-xl w-xs absolute lg:bottom-8 lg:left-8 bottom-4 left-4 md:block hidden'>
+						<p className='font-[family-name:var(--font-gerhaus)] text-xl'>MIDJOURNEY</p>
+						<p className='text-xs'>
+							/imagine prompt: A stylized digital illustration of a floating humanoid figure, soft pastel color palette,
+							futuristic sci-fi environment, clean line art, retro-futurism aesthetic, glowing portal in the background,
+							ethereal atmosphere, high-quality flat shading, smooth gradients
+						</p>
+					</div>
+				</div>
+
+				{/* Главный заголовок */}
+				<h2 className='font-[family-name:var(--font-gerhaus)] text-center 2xl:text-[118px] md:text-6xl sm:text-4xl text-2xl leading-tight lg:mt-0 mt-12'>
+					СТРЕМИСЬ. ИССЛЕДУЙ.
+					<br />
+					<span className='text-[#D8C5FF] 2xl:text-[144px]'>БУДЬ ПЕРВЫМ(ОЙ)</span>.
+				</h2>
+
+				{/* Кнопки-направления */}
+				<div className='flex flex-wrap justify-center gap-3 max-w-6xl lg:text-2xl md:text-lg text-sm md:mt-2 mt-5'>
+					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>Фронтенд</span>
+					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>Олимпиады</span>
+					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>Фулстек</span>
+					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>AI/ML</span>
+					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>Геймдев</span>
+					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>Мобильная разработка</span>
+					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>Кибербезопасность</span>
+					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>Big Data</span>
+					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>Сетевые технологии</span>
+					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>IT</span>
+					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>Web3</span>
+					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>Хакатоны</span>
+					<div className='flex items-center gap-4 flex-wrap'>
+						<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>Чемпионаты</span>
+						<button className='lg:px-24 px-12 py-2 bg-[#D8C5FF] text-black font-bold rounded-full cursor-pointer hidden md:block'>
+							Начни развиваться с нами
+						</button>
+						<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>Data Science</span>
+					</div>
+				</div>
+
+				{/* Кнопка */}
+				<button className='sm:px-24 sm:w-auto w-full py-2 mt-4 md:hidden bg-[#D8C5FF] text-black lg:text-2xl md:text-lg text-sm font-bold rounded-full cursor-pointer'>
+					Начни развиваться с нами
+				</button>
+
+				{/* Подвал */}
+				<div className='flex w-full items-center md:mt-40 sm:mt-20 mt-10 md:pb-20 pb-10 flex-wrap gap-8 md:text-left text-center md:justify-between justify-center'>
+					<div className='md:text-2xl text-lg max-w-xl'>
+						<p className='font-[family-name:var(--font-gerhaus)]'>
+							МИР МЕНЯЕТСЯ. ЛИБО ТЫ <br />
+							<span className='text-[#D8C5FF]'>ПРОГРАММИРУЕШЬ</span> ЕГО, ЛИБО <br />
+							ОН <span className='text-[#D8C5FF]'>ПРОГРАММИРУЕТ</span> ТЕБЯ.
+						</p>
+					</div>
+
+					<div className='justify-end items-end'>
+						<p className='md:text-lg text-sm text-gray-200 mb-[10px]'>
+							Мы спросили ChatGPT, <br /> что написать здесь, <br /> и вот что он придумал
+						</p>
+						<Image src='/c_chat_gpt.png' alt='c_chat_gpt' width={200} height={40} />
+					</div>
+				</div>
+			</header>
+		</>
+	);
 }

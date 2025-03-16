@@ -75,7 +75,7 @@ export default function Home() {
 						<p className='lg:text-lg text-sm text-gray-200 mb-[10px]'>
 							Мы спросили ChatGPT, <br /> что написать здесь, <br /> и вот что он придумал
 						</p>
-						<Image src='/c_chat_gpt.png' alt='c_chat_gpt' width={200} height={40} />
+						<p className='text-[35px] font-[family-name:var(--font-gerhaus)] text-[#D8C5FF]'>©chat Gpt</p>
 					</div>
 				</div>
 			</header>

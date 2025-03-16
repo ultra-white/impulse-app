@@ -65,16 +65,14 @@ export default function Home() {
 
 				{/* Подвал */}
 				<div className='flex w-full items-center md:mt-40 sm:mt-20 mt-10 md:pb-20 pb-10 flex-wrap gap-8 md:text-left text-center md:justify-between justify-center'>
-					<div className='md:text-2xl text-lg max-w-xl'>
-						<p className='font-[family-name:var(--font-gerhaus)]'>
-							МИР МЕНЯЕТСЯ. ЛИБО ТЫ <br />
-							<span className='text-[#D8C5FF]'>ПРОГРАММИРУЕШЬ</span> ЕГО, ЛИБО <br />
-							ОН <span className='text-[#D8C5FF]'>ПРОГРАММИРУЕТ</span> ТЕБЯ.
-						</p>
-					</div>
+					<p className='font-[family-name:var(--font-gerhaus)] xl:text-5xl lg:text-2xl mg:text-xl text-lg max-w-full'>
+						МИР МЕНЯЕТСЯ. ЛИБО ТЫ <br />
+						<span className='text-[#D8C5FF]'>ПРОГРАММИРУЕШЬ</span> ЕГО, ЛИБО <br />
+						ОН <span className='text-[#D8C5FF]'>ПРОГРАММИРУЕТ</span> ТЕБЯ.
+					</p>
 
 					<div className='justify-end items-end'>
-						<p className='md:text-lg text-sm text-gray-200 mb-[10px]'>
+						<p className='lg:text-lg text-sm text-gray-200 mb-[10px]'>
 							Мы спросили ChatGPT, <br /> что написать здесь, <br /> и вот что он придумал
 						</p>
 						<Image src='/c_chat_gpt.png' alt='c_chat_gpt' width={200} height={40} />

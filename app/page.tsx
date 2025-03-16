@@ -1,4 +1,53 @@
 import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Импульс – Платформа для развития",
+	description:
+		"Проверь статус своих олимпиад, развивайся в IT, участвуй в хакатонах и чемпионатах. Достигай новых высот с нами!",
+	keywords: [
+		"Импульс",
+		"олимпиады",
+		"хакатоны",
+		"чемпионаты",
+		"IT",
+		"программирование",
+		"фронтенд",
+		"фулстек",
+		"искусственный интеллект",
+		"машинное обучение",
+		"кибербезопасность",
+		"Big Data",
+		"Web3",
+		"геймдев",
+		"мобильная разработка",
+		"сетевые технологии",
+		"data science",
+	],
+	openGraph: {
+		title: "Импульс – Платформа для развития",
+		description:
+			"Присоединяйся к Импульсу и развивайся в сфере IT! Олимпиады, хакатоны, чемпионаты, программирование, AI, Big Data и многое другое.",
+		url: "https://impulse-app-nine.vercel.app/",
+		siteName: "Импульс",
+		images: [
+			{
+				url: "/astronaut.jpg",
+				width: 1200,
+				height: 630,
+				alt: "Импульс – Развивайся в IT",
+			},
+		],
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Импульс – Платформа для развития",
+		description:
+			"Развивайся в сфере IT, участвуй в хакатонах, олимпиадах и чемпионатах. Начни свой путь в программировании с Импульсом!",
+		images: ["/astronaut.jpg"],
+	},
+};
 
 export default function Home() {
 	return (

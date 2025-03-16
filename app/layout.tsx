@@ -32,7 +32,7 @@ const involve = localFont({
 });
 
 export const metadata: Metadata = {
-	title: "Impulse olimpiada app",
+	title: "Импульс",
 	description: "Check status of your olimpiads",
 };
 

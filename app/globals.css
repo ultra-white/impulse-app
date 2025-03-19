@@ -9,4 +9,5 @@
 
 body {
 	font-family: Involve, sans-serif;
+	scroll-behavior: smooth;
 }

@@ -24,41 +24,16 @@ export const metadata: Metadata = {
 		"сетевые технологии",
 		"data science",
 	],
-	openGraph: {
-		title: "Импульс – Платформа для развития",
-		description:
-			"Присоединяйся к Импульсу и развивайся в сфере IT! Олимпиады, хакатоны, чемпионаты, программирование, AI, Big Data и многое другое.",
-		url: "https://impulse-app-nine.vercel.app/",
-		siteName: "Импульс",
-		images: [
-			{
-				url: "/astronaut.jpg",
-				width: 1200,
-				height: 630,
-				alt: "Импульс – Развивайся в IT",
-			},
-		],
-		type: "website",
-	},
-	twitter: {
-		card: "summary_large_image",
-		title: "Импульс – Платформа для развития",
-		description:
-			"Развивайся в сфере IT, участвуй в хакатонах, олимпиадах и чемпионатах. Начни свой путь в программировании с Импульсом!",
-		images: ["/astronaut.jpg"],
-	},
 };
 
 export default function Home() {
 	return (
 		<>
 			<header className='font-involve h-full bg-[#141414] text-white flex flex-col items-center md:px-[50px] px-6 md:rounded-b-[100px] rounded-b-[50px]'>
-				{/* Логотип */}
 				<a href='' className='mt-[30px]'>
 					<Image src='/logo.svg' alt='logo' width={274} height={48} />
 				</a>
 
-				{/* Картинка */}
 				<div className='mt-12 w-full flex flex-col items-center relative'>
 					<Image
 						src='/astronaut.jpg'
@@ -77,14 +52,12 @@ export default function Home() {
 					</div>
 				</div>
 
-				{/* Главный заголовок */}
 				<h2 className='font-[family-name:var(--font-gerhaus)] text-center 2xl:text-[118px] md:text-6xl sm:text-4xl text-2xl leading-tight lg:mt-0 mt-12'>
 					СТРЕМИСЬ. ИССЛЕДУЙ.
 					<br />
 					<span className='text-[#D8C5FF] 2xl:text-[144px]'>БУДЬ ПЕРВЫМ(ОЙ)</span>.
 				</h2>
 
-				{/* Кнопки-направления */}
 				<div className='flex flex-wrap justify-center gap-3 max-w-6xl lg:text-2xl md:text-lg text-sm md:mt-2 mt-5'>
 					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>Фронтенд</span>
 					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>Олимпиады</span>
@@ -107,12 +80,10 @@ export default function Home() {
 					</div>
 				</div>
 
-				{/* Кнопка */}
 				<button className='sm:px-24 sm:w-auto w-full py-2 mt-4 md:hidden bg-[#D8C5FF] text-black lg:text-2xl md:text-lg text-sm font-bold rounded-full cursor-pointer'>
 					Начни развиваться с нами
 				</button>
 
-				{/* Подвал */}
 				<div className='flex w-full items-center md:mt-40 sm:mt-20 mt-10 md:pb-20 pb-10 flex-wrap gap-8 md:text-left text-center md:justify-between justify-center'>
 					<p className='font-[family-name:var(--font-gerhaus)] xl:text-5xl lg:text-2xl mg:text-xl text-lg max-w-full'>
 						МИР МЕНЯЕТСЯ. ЛИБО ТЫ <br />
@@ -128,6 +99,87 @@ export default function Home() {
 					</div>
 				</div>
 			</header>
+			<main>
+				<section className='flex flex-col md:px-[50px] px-6 md:mt-[100px] mt-[75px] mb-24'>
+					<h2 className='font-[family-name:var(--font-gerhaus)] 2xl:text-[48px] md:text-4xl sm:text-3xl text-2xl leading-tight'>
+						ЗАЧЕМ ОНО ТЕБЕ НАДО?
+					</h2>
+
+					<div className='w-full grid xl:grid-cols-2 grid-cols-1 gap-6 mt-5 text-lg'>
+						<div className='w-full grid gap-6'>
+							<div className='md:col-span-2 p-3 rounded-4xl shadow-lg flex flex-col relative overflow-hidden md:md:h-[400px] h-[300px]'>
+								<Image
+									src='/calculator.png'
+									alt='Calculator'
+									width={1000}
+									height={1000}
+									className='absolute inset-0 w-full h-full object-cover'
+								/>
+								<div className='relative bg-white p-3 rounded-2xl md:max-w-120 md:absolute md:bottom-3 flex flex-col gap-[6px]'>
+									<h3 className='text-2xl font-[family-name:var(--font-gerhaus)]'>ПРЯМОЙ ПУТЬ В ТОПОВЫЕ ВУЗЫ</h3>
+									<p>
+										победы в олимпиадах дают льготы при поступлении в МГУ, ВШЭ, СПбГУ, МФТИ, ИТМО, Бауманку и другие
+										ведущие университеты.
+									</p>
+								</div>
+							</div>
+							<div className='md:col-span-1 bg-black p-6 rounded-4xl shadow-lg flex flex-col md:h-[400px] h-[300px]'>
+								<div className='flex flex-col gap-[6px]'>
+									<h3 className='text-2xl font-[family-name:var(--font-gerhaus)] text-[#D8C5FF]'>
+										ПРОВЕРКА СВОИХ ВОЗМОЖНОСТЕЙ
+									</h3>
+									<p className='text-white'>
+										соревнования прокачивают стрессоустойчивость, скорость мышления и командную работу, что важно для
+										карьеры.
+									</p>
+								</div>
+							</div>
+							<div className=' p-3 rounded-4xl shadow-lg flex flex-col justify-end bg-[#d8c5ff] md:h-[400px] h-[300px]'>
+								<div className='bg-white rounded-xl p-3 flex flex-col gap-[6px]'>
+									<h3 className='text-2xl font-[family-name:var(--font-gerhaus)] text-black'>
+										ПРЕИМУЩЕСТВО НА РЫНКЕ ТРУДА
+									</h3>
+									<p className='text-black'>
+										рекрутеры ценят достижения больше, чем дипломы. Победы выделяют тебя среди кандидатов.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div className='w-full grid gap-6'>
+							<div className='bg-[#141414] text-white p-6 rounded-4xl shadow-lg flex flex-col justify-end md:h-[400px] h-[300px]'>
+								<div className='flex md:flex-col-reverse flex-col gap-[6px]'>
+									<h3 className='text-2xl font-[family-name:var(--font-gerhaus)] text-[#D8C5FF]'>
+										ШАНС ПОПАСТЬ В IT-ГИГАНТЫ
+									</h3>
+									<p>
+										Яндекс, Сбер, Тинькофф, Авито следят за участниками соревнований, приглашая лучших на стажировки и
+										работу.
+									</p>
+								</div>
+							</div>
+							<div className='md:col-span-1 bg-[#d8c5ff] p-3 rounded-4xl shadow-lg flex flex-col md:h-[400px] h-[300px]'>
+								<div className='bg-white rounded-xl p-3 flex flex-col gap-[6px]'>
+									<h3 className='text-2xl font-[family-name:var(--font-gerhaus)]'>ПОЛЕЗНЫЕ ЗНАКОМСТВА</h3>
+									<p>на конкурсах ты найдёшь будущих коллег, единомышленников и партнёров для стартапов.</p>
+								</div>
+							</div>
+							<div className='md:col-span-2 p-3 rounded-4xl shadow-lg flex flex-col relative overflow-hidden md:h-[400px] h-[300px]'>
+								<Image
+									src='/helmet.png'
+									alt='Helmet'
+									width={1000}
+									height={1000}
+									className='absolute inset-0 w-full h-full object-cover'
+								/>
+								<div className='z-10 bg-white p-3 rounded-2xl md:max-w-120'>
+									<h3 className='text-2xl font-[family-name:var(--font-gerhaus)]'>РЕАЛЬНЫЕ КЕЙСЫ И ОПЫТ</h3>
+									<p>вместо учебных задач ты решаешь актуальные проблемы индустрии, которые интересны компаниям.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
 		</>
 	);
 }

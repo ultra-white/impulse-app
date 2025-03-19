@@ -100,8 +100,8 @@ export default function Home() {
 				</div>
 			</header>
 			<main>
-				<section className='flex flex-col md:px-[50px] px-6 md:mt-[100px] mt-[75px] mb-24'>
-					<h2 className='font-[family-name:var(--font-gerhaus)] 2xl:text-[48px] md:text-4xl sm:text-3xl text-2xl leading-tight'>
+				<section className='flex flex-col md:px-[50px] px-6 md:mt-[100px] mt-[75px]'>
+					<h2 className='font-[family-name:var(--font-gerhaus)] 2xl:text-[48px] md:text-4xl sm:text-3xl text-2xl'>
 						ЗАЧЕМ ОНО ТЕБЕ НАДО?
 					</h2>
 
@@ -174,6 +174,49 @@ export default function Home() {
 								<div className='z-10 bg-white p-3 rounded-2xl md:max-w-120'>
 									<h3 className='text-2xl font-[family-name:var(--font-gerhaus)]'>РЕАЛЬНЫЕ КЕЙСЫ И ОПЫТ</h3>
 									<p>вместо учебных задач ты решаешь актуальные проблемы индустрии, которые интересны компаниям.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section className='md:px-[50px] px-6 md:mt-[100px] mt-[75px] bg-black rounded-4xl'>
+					<div className='pt-[50px] bg-black text-white '>
+						<h2 className='font-[family-name:var(--font-gerhaus)] 2xl:text-[48px] md:text-4xl sm:text-3xl text-2xl'>
+							Успешные кейсы
+						</h2>
+						<div className='flex gap-5 flex-wrap xl:flex-nowrap py-12'>
+							<div className='flex flex-wrap sm:flex-nowrap gap-5 bg-white p-8 h-full rounded-2xl'>
+								<Image
+									src='/mihail_person.png'
+									alt='avatar'
+									width={215}
+									height={215}
+									className='max-w-[215px] h-full object-cover'
+								/>
+								<div className='text-black'>
+									<h3 className='font-[family-name:var(--font-gerhaus)] text-2xl'>Михаил Мирзаянов</h3>
+									<p>основатель платформы Codeforces, ассистент ИТМО факультета ИТиП</p>
+									<p className='font-bold mt-4'>
+										Михаил Мирзаянов участвовал в ACM ICPC, Всероссийской олимпиаде по информатике и TopCoder, а в 2010
+										году создал Codeforces.
+									</p>
+								</div>
+							</div>
+							<div className='flex flex-wrap sm:flex-nowrap gap-5 bg-white p-8 h-full rounded-2xl'>
+								<Image
+									src='/egor_person.png'
+									alt='avatar'
+									width={215}
+									height={215}
+									className='max-w-[215px] h-full object-cover'
+								/>
+								<div className='text-black'>
+									<h3 className='font-[family-name:var(--font-gerhaus)] text-2xl'>Егор Куликов</h3>
+									<p>Работал в Яндекс, Google над алгоритмами поиска, затем присоединился к DeepMind</p>
+									<p className='font-bold mt-4'>
+										Егор Куликов стал победителем Всероссийской олимпиады по информатике, Google Code Jam 2010, TopCoder
+										Open 2012 и бронзовым призёром ACM ICPC.
+									</p>
 								</div>
 							</div>
 						</div>

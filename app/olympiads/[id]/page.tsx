@@ -48,8 +48,11 @@ async function getOlympiadById(id: string): Promise<Olympiad | undefined> {
 }
 
 // Функция для генерации метаданных
-export async function generateMetadata(props: { params: { id: string } }): Promise<Metadata> {
-	const olympiad = await getOlympiadById(props.params.id);
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+	// Ожидаем params перед использованием
+	const resolvedParams = await params;
+	const id = resolvedParams.id;
+	const olympiad = await getOlympiadById(id);
 
 	if (!olympiad) {
 		return {
@@ -73,9 +76,16 @@ export async function generateStaticParams() {
 	}));
 }
 
-export default async function OlympiadPage(props: { params: { id: string } }) {
+type Props = {
+	params: { id: string };
+};
+
+export default async function OlympiadPage({ params }: Props) {
+	// Ожидаем params перед использованием
+	const resolvedParams = await params;
+	const id = resolvedParams.id;
 	// Получаем данные олимпиады по ID
-	const olympiad = await getOlympiadById(props.params.id);
+	const olympiad = await getOlympiadById(id);
 
 	// Если олимпиада не найдена, отображаем 404
 	if (!olympiad) {

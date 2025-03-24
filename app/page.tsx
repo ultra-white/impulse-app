@@ -2,6 +2,9 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 
+// Импортируем данные о олимпиадах
+import olympiadsData from "../public/olympiads.json";
+
 export const metadata: Metadata = {
 	title: "Импульс – Платформа для развития",
 	description:
@@ -264,228 +267,59 @@ export default function Home() {
 						Выбирай в чём учавствовать
 					</h2>
 					<div className='md:mt-[50px] mt-6 flex flex-col gap-5'>
-						<div className='flex xl:flex-nowrap flex-wrap gap-5'>
+						{olympiadsData.map((olympiad) => (
 							<Link
-								href=''
-								className='bg-[#141414] rounded-4xl w-full h-full p-8 relative hover:scale-[101%] duration-300'
+								key={olympiad.id}
+								href={`/olympiads/${olympiad.id}`}
+								className='bg-[#141414] rounded-4xl p-8 relative hover:scale-[101%] duration-300'
 							>
-								<div className='text-white flex xl:gap-8 items-start xl:items-center flex-col xl:flex-row'>
-									<h3 className='text-[40px] font-[family-name:var(--font-gerhaus)]'>Музеи. Парки. Усадьбы</h3>
-									<span className='py-1 px-4 bg-zinc-600 rounded-2xl text-zinc-300'>олимпиада</span>
+								<div className='flex justify-between items-start'>
+									<div className='text-white flex xl:gap-8 items-start xl:items-center flex-col xl:flex-row max-w-[80%]'>
+										<h3 className='text-[40px] font-[family-name:var(--font-gerhaus)]'>{olympiad.title}</h3>
+										<span className='py-1 px-4 bg-zinc-600 rounded-2xl text-zinc-300'>{olympiad.type}</span>
+									</div>
+									<div>
+										<Image src='/arrow_link.png' alt='link' width={70} height={70} className='md:w-[70px] w-[45px]' />
+									</div>
 								</div>
-								<Image
-									src='/arrow_link.png'
-									alt='link'
-									width={70}
-									height={70}
-									className='absolute md:top-6 md:right-6 top-1 right-1 md:w-[70px] w-[45px]'
-								/>
 								<div className='flex gap-2.5 xl:mt-2.5 mt-4 flex-wrap'>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										История
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Культура и природа столицы
-									</span>
+									{olympiad.categories.map((category, index) => (
+										<span
+											key={index}
+											className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'
+										>
+											{category}
+										</span>
+									))}
 								</div>
 								<p className='flex gap-2.5 mt-4 text-white'>
-									<span className='text-zinc-400'>Для кого:</span> Студенты ВУЗов и СПО
+									<span className='text-zinc-400'>Для кого:</span> {olympiad.audience}
 								</p>
-								<p className='mt-15 text-white'>История, культура и природа столицы.</p>
+								<p className='mt-15 text-white'>{olympiad.description}</p>
+								<div className='mt-6 pt-4 border-t border-zinc-700 flex justify-between'>
+									<span className='text-[#DAC5FF]'>{olympiad.status}</span>
+									<span className='text-zinc-400'>{olympiad.date}</span>
+								</div>
 							</Link>
-						</div>
-						<div className='flex xl:flex-nowrap flex-wrap gap-5'>
+						))}
+						<div className='flex justify-center mt-6'>
 							<Link
 								href=''
-								className='bg-[#141414] rounded-4xl w-full h-full p-8 relative hover:scale-[101%] duration-300'
+								className='bg-[#D8C5FF] text-black px-12 py-2 font-bold rounded-full hover:bg-white duration-300 flex items-center'
 							>
-								<div className='text-white flex xl:gap-8 items-start xl:items-center flex-col xl:flex-row'>
-									<h3 className='text-[40px] font-[family-name:var(--font-gerhaus)]'>IT-Планета</h3>
-									<span className='py-1 px-4 bg-zinc-600 rounded-2xl text-zinc-300'>чемпионат</span>
-								</div>
-								<Image
-									src='/arrow_link.png'
-									alt='link'
-									width={70}
-									height={70}
-									className='absolute md:top-6 md:right-6 top-1 right-1 md:w-[70px] w-[45px]'
-								/>
-								<div className='flex gap-2.5 xl:mt-2.5 mt-4 flex-wrap'>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Кибербезопасность
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Веб-разработка
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Роботостроение
-									</span>
-								</div>
-								<p className='flex gap-2.5 mt-4 text-white'>
-									<span className='text-zinc-400'>Для кого:</span> Студенты ВУЗов и СПО
-								</p>
-								<p className='mt-15 text-white'>
-									Участников хакатонов получают предложения о работе от компаний-спонсоров мероприятий.
-								</p>
-							</Link>
-							<Link
-								href=''
-								className='bg-[#141414] rounded-4xl w-full h-full p-8 relative hover:scale-[101%] duration-300'
-							>
-								<div className='text-white flex xl:gap-8 items-start xl:items-center flex-col xl:flex-row'>
-									<h3 className='text-[40px] font-[family-name:var(--font-gerhaus)]'>Абилимпикс</h3>
-									<span className='py-1 px-4 bg-zinc-600 rounded-2xl text-zinc-300'>чемпионат</span>
-								</div>
-								<Image
-									src='/arrow_link.png'
-									alt='link'
-									width={70}
-									height={70}
-									className='absolute md:top-6 md:right-6 top-1 right-1 md:w-[70px] w-[45px]'
-								/>
-								<div className='flex gap-2.5 xl:mt-2.5 mt-4 flex-wrap'>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>IT</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Кибербезопасность
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Графический дизайн
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Автоматизация бизнес-процессов
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Технологии моды
-									</span>
-								</div>
-								<p className='flex gap-2.5 mt-4 text-white'>
-									<span className='text-zinc-400'>Для кого:</span> Студенты ВУЗов и СПО
-								</p>
-								<p className='mt-15 text-white'></p>
-							</Link>
-						</div>
-						<div className='flex xl:flex-nowrap flex-wrap gap-5'>
-							<Link
-								href=''
-								className='bg-[#141414] rounded-4xl w-full h-full p-8 relative hover:scale-[101%] duration-300'
-							>
-								<div className='text-white flex xl:gap-8 items-start xl:items-center flex-col xl:flex-row'>
-									<h3 className='text-[40px] font-[family-name:var(--font-gerhaus)]'>Московские мастера</h3>
-									<span className='py-1 px-4 bg-zinc-600 rounded-2xl text-zinc-300'>конкурс</span>
-								</div>
-								<Image
-									src='/arrow_link.png'
-									alt='link'
-									width={70}
-									height={70}
-									className='absolute md:top-6 md:right-6 top-1 right-1 md:w-[70px] w-[45px]'
-								/>
-								<div className='flex gap-2.5 xl:mt-2.5 mt-4 flex-wrap'>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Кибербезопасность
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										3D-моделирование
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Графический дизайн
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Интернет-маркетинг
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Робототехника
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Сетевое администрирование
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Программные решения для бизнеса
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Веб-технологии
-									</span>
-								</div>
-								<p className='flex gap-2.5 mt-4 text-white'>
-									<span className='text-zinc-400'>Для кого:</span> Студенты ВУЗов и СПО
-								</p>
-								<p className='mt-15 text-white'>
-									Конкурс профессионального мастерства для студентов колледжей и школьников Москвы.
-								</p>
-							</Link>
-						</div>
-						<div className='flex xl:flex-nowrap flex-wrap gap-5'>
-							<Link
-								href=''
-								className='bg-[#141414] rounded-4xl w-full h-full p-8 relative hover:scale-[101%] duration-300'
-							>
-								<div className='text-white flex xl:gap-8 items-start xl:items-center flex-col xl:flex-row'>
-									<h3 className='text-[40px] font-[family-name:var(--font-gerhaus)]'>МоиФинансы</h3>
-									<span className='py-1 px-4 bg-zinc-600 rounded-2xl text-zinc-300'>олимпиада</span>
-								</div>
-								<Image
-									src='/arrow_link.png'
-									alt='link'
-									width={70}
-									height={70}
-									className='absolute md:top-6 md:right-6 top-1 right-1 md:w-[70px] w-[45px]'
-								/>
-								<div className='flex gap-2.5 xl:mt-2.5 mt-4 flex-wrap'>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Кибербезопасность
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Личные финансы
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Бюджетирование
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Инвестиции
-									</span>
-								</div>
-								<p className='flex gap-2.5 mt-4 text-white'>
-									<span className='text-zinc-400'>Для кого:</span> Студенты ВУЗов и СПО
-								</p>
-								<p className='mt-15 text-white'>Всероссийская олимпиада по финансовой грамотности для студентов СПО.</p>
-							</Link>
-						</div>
-						<div className='flex xl:flex-nowrap flex-wrap gap-5'>
-							<Link
-								href=''
-								className='bg-[#141414] rounded-4xl w-full h-full p-8 relative hover:scale-[101%] duration-300'
-							>
-								<div className='text-white flex xl:gap-8 items-start xl:items-center flex-col xl:flex-row'>
-									<h3 className='text-[40px] font-[family-name:var(--font-gerhaus)]'>Не прервётся связь поколений</h3>
-									<span className='py-1 px-4 bg-zinc-600 rounded-2xl text-zinc-300'>олимпиада</span>
-								</div>
-								<Image
-									src='/arrow_link.png'
-									alt='link'
-									width={70}
-									height={70}
-									className='absolute md:top-6 md:right-6 top-1 right-1 md:w-[70px] w-[45px]'
-								/>
-								<div className='flex gap-2.5 xl:mt-2.5 mt-4 flex-wrap'>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Кибербезопасность
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Истории
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Культура
-									</span>
-									<span className='border rounded-2xl border-[#D8C5FF] text-[#D8C5FF] py-1 px-2.5 text-sm'>
-										Семейныу традиции
-									</span>
-								</div>
-								<p className='flex gap-2.5 mt-4 text-white'>
-									<span className='text-zinc-400'>Для кого:</span> Школьники, студенты СПО
-								</p>
-								<p className='mt-15 text-white'>
-									Метапредметная олимпиада для школьников, посвящённая истории, культуре и семейным традициям.
-								</p>
+								Показать все олимпиады
+								<svg
+									xmlns='http://www.w3.org/2000/svg'
+									className='h-5 w-5 ml-2'
+									viewBox='0 0 20 20'
+									fill='currentColor'
+								>
+									<path
+										fillRule='evenodd'
+										d='M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z'
+										clipRule='evenodd'
+									/>
+								</svg>
 							</Link>
 						</div>
 					</div>

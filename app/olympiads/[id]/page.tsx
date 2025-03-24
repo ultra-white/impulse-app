@@ -125,18 +125,18 @@ export default async function OlympiadPage(props: { params: { id: string } }) {
 						style={{ filter: "hue-rotate(30deg) brightness(1.1)" }}
 					/>
 				</div>
-
-				<h2 className='text-[#D8C5FF] font-[family-name:var(--font-gerhaus)] text-center 2xl:text-[144px] md:text-6xl sm:text-4xl text-2xl leading-tight lg:mt-0 mt-12'>
+				<div className='flex flex-wrap justify-center gap-3 max-w-6xl lg:text-2xl md:text-lg text-sm md:mt-2 lg:mt-[50px] mt-12'>
+					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>Тип: {olympiad.type}</span>
+					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>
+						Направление: {olympiad.categories[0]}
+					</span>
+					<span className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>
+						Возраст: {olympiad.ageRange || "16-27 лет"}
+					</span>
+				</div>
+				<h2 className='text-[#D8C5FF] font-[family-name:var(--font-gerhaus)] text-center 2xl:text-[144px] md:text-6xl sm:text-4xl text-2xl leading-tight md:mb-12 mb-8 lg:mt-0 mt-10'>
 					{olympiad.title.toUpperCase()}
 				</h2>
-
-				<div className='flex flex-wrap justify-center gap-3 max-w-6xl lg:text-2xl md:text-lg text-sm md:mt-2 mt-5 md:mb-12 mb-8'>
-					{olympiad.categories.map((category, index) => (
-						<span key={index} className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>
-							{category}
-						</span>
-					))}
-				</div>
 			</header>
 
 			<main>
@@ -145,25 +145,38 @@ export default async function OlympiadPage(props: { params: { id: string } }) {
 						{olympiad.description}
 					</p>
 				</div>
+				<section className='bg-[#141414] md:px-[50px] px-6 md:py-12 py-6 md:mt-[100px] mt-[50px] font-involve'>
+					<h2 className='font-[family-name:var(--font-gerhaus)] 2xl:text-[48px] md:text-4xl sm:text-3xl text-2xl text-white'>
+						НАПРАВЛЕНИЯ
+					</h2>
+					<div className='flex flex-wrap justify-center gap-3 max-w-6xl lg:text-2xl md:text-lg text-sm md:mt-2 lg:mt-[25px] mt-4 mx-auto'>
+						{olympiad.categories.map((category, index) => (
+							<span key={index} className='px-4 py-2 border border-[#D8C5FF] text-[#D8C5FF] rounded-full'>
+								{category}
+							</span>
+						))}
+					</div>
+				</section>
 				{/* Этапы */}
-				<section className='flex flex-col md:px-[50px] px-6 md:mt-[100px] mt-[75px]'>
-					<h2 className='font-[family-name:var(--font-gerhaus)] 2xl:text-[48px] md:text-4xl sm:text-3xl text-2xl'>
+				<section className='flex flex-col md:mt-[100px] mt-[50px]'>
+					<h2 className='md:px-[50px] px-6 font-[family-name:var(--font-gerhaus)] 2xl:text-[48px] md:text-4xl sm:text-3xl text-2xl'>
 						ЭТАПЫ
 					</h2>
 
 					<div className='w-full mt-6 relative'>
 						{/* Линия времени */}
-						<div className='absolute left-4 top-4 bottom-4 w-1 bg-[#D8C5FF]'></div>
+						<div className='absolute left-0 right-0 md:top-8 top-6 h-2 bg-[#141414]'></div>
 
-						<div className='flex flex-col gap-10 pl-16'>
+						<div className='md:px-[50px] px-6 flex flex-row gap-8 overflow-x-auto pb-4 md:pb-6 scrollbar-hide'>
 							{stages.map((stage, index) => (
-								<div key={index} className='relative'>
-									<div className='absolute left-[-3rem] top-[0.35rem] w-8 h-8 rounded-full bg-[#D8C5FF] flex items-center justify-center text-black font-bold'>
-										{index + 1}
+								<div key={index} className='relative w-full flex flex-col'>
+									<div className='absolute top-2 left-0 md:w-[55px] md:h-[55px] w-[40px] h-[40px] rounded-full bg-[#141414] flex items-center justify-center'>
+										<div className='md:w-[22px] md:h-[22px] w-[16px] h-[16px] rounded-full bg-[#D8C5FF]'></div>
 									</div>
-									<h3 className='uppercase font-bold text-xl'>{stage.title}</h3>
-									<p className='text-sm text-gray-400 mt-1'>{stage.date}</p>
-									<p className='mt-2 text-lg'>{stage.description}</p>
+									<h3 className='uppercase font-[family-name:var(--font-gerhaus)] md:text-[20px] text-[16px] md:ml-[70px] ml-[50px] mb-1 whitespace-nowrap'>
+										{stage.title}
+									</h3>
+									<p className='md:text-[20px] text-[14px] text-black md:ml-[70px] ml-[50px] mt-1'>{stage.date}</p>
 								</div>
 							))}
 						</div>
@@ -171,14 +184,14 @@ export default async function OlympiadPage(props: { params: { id: string } }) {
 				</section>
 
 				{/* Информационные блоки */}
-				<section className='md:px-[50px] px-6 md:mt-[100px] mt-[75px]'>
+				<section className='md:px-[50px] px-6 md:mt-[100px] mt-[50px]'>
 					<h2 className='font-[family-name:var(--font-gerhaus)] 2xl:text-[48px] md:text-4xl sm:text-3xl text-2xl'>
 						ДЕТАЛИ УЧАСТИЯ
 					</h2>
 
 					<div className='w-full grid xl:grid-cols-3 grid-cols-1 gap-6 mt-6 text-lg'>
 						{/* Блок 1 - Формат */}
-						<div className='bg-[#141414] p-6 rounded-4xl shadow-lg flex flex-col md:h-[300px] hover:scale-[101%] duration-300'>
+						<div className='bg-[#141414] p-6 rounded-4xl shadow-lg flex flex-col justify-center md:h-[237px] hover:scale-[101%] duration-300'>
 							<h3 className='text-2xl font-[family-name:var(--font-gerhaus)] text-[#D8C5FF]'>ФОРМАТ</h3>
 							<ul className='list-disc pl-5 mt-4 space-y-2 text-white'>
 								{format.map((item, index) => (
@@ -188,15 +201,13 @@ export default async function OlympiadPage(props: { params: { id: string } }) {
 						</div>
 
 						{/* Блок 2 - Возраст */}
-						<div className='p-3 rounded-4xl shadow-lg flex flex-col justify-end bg-[#d8c5ff] md:h-[300px] hover:scale-[101%] duration-300'>
-							<div className='bg-white rounded-xl p-3 flex flex-col gap-[6px]'>
-								<h3 className='text-2xl font-[family-name:var(--font-gerhaus)] text-black'>ВОЗРАСТ</h3>
-								<p className='text-4xl font-[family-name:var(--font-gerhaus)]'>{ageRange}</p>
-							</div>
+						<div className='p-10 rounded-4xl shadow-lg flex flex-col justify-end bg-[#d8c5ff] md:h-[237px] hover:scale-[101%] duration-300'>
+							<h3 className='text-2xl font-[family-name:var(--font-gerhaus)] text-black'>ВОЗРАСТ</h3>
+							<p className='text-[52px] font-[family-name:var(--font-gerhaus)]  text-white'>{ageRange}</p>
 						</div>
 
 						{/* Блок 3 - Организатор */}
-						<div className='bg-[#141414] p-6 rounded-4xl shadow-lg flex flex-col md:h-[300px] hover:scale-[101%] duration-300'>
+						<div className='bg-[#141414] p-6 rounded-4xl shadow-lg flex flex-col justify-center md:h-[230px] hover:scale-[101%] duration-300'>
 							<div className='flex flex-col gap-[6px]'>
 								<h3 className='text-2xl font-[family-name:var(--font-gerhaus)] text-[#D8C5FF]'>ОРГАНИЗАТОР</h3>
 								<p className='text-white mt-4'>{organizer.name}</p>
@@ -210,30 +221,37 @@ export default async function OlympiadPage(props: { params: { id: string } }) {
 				<section className='md:px-[50px] px-6 md:mt-[50px] mt-[40px]'>
 					<div className='w-full grid xl:grid-cols-2 grid-cols-1 gap-6 mt-6 text-lg'>
 						{/* Блок 1 - Группы */}
-						<div className='bg-[#141414] p-6 rounded-4xl shadow-lg flex flex-col md:h-[300px] hover:scale-[101%] duration-300'>
-							<div className='flex flex-col gap-[6px]'>
-								<h3 className='text-2xl font-[family-name:var(--font-gerhaus)] text-[#D8C5FF]'>ЦЕЛЕВЫЕ ГРУППЫ</h3>
-								<p className='text-white mt-4'>
-									{olympiad.groups || "Университеты, индивидуальные участники, профессиональные команды"}
-								</p>
+						<div className='bg-[#D8C5FF] p-7 rounded-4xl shadow-lg flex gap-6 md:h-[150px] hover:scale-[101%] duration-300'>
+							<div className='flex flex-col gap-[6px] md:max-w-[75%]'>
+								<h3 className='text-2xl font-[family-name:var(--font-gerhaus)]'>РЕСУРСЫ</h3>
+								<p className='text-black text-xl mt-4'>Документация, онлайн-курсы, материалы на платформе Braim</p>
+							</div>
+							<div className='md:flex hidden items-end justify-center'>
+								<Image src='/metting_favorite_alerts.png' alt='Ресурсы' width={122} height={122} className='-mb-1.5' />
 							</div>
 						</div>
 
 						{/* Блок 2 - Призы и стажировки */}
-						<div className='p-3 rounded-4xl shadow-lg flex flex-col relative overflow-hidden md:h-[300px] hover:scale-[101%] duration-300'>
-							<Image
-								src='/calculator.png'
-								alt='Призы'
-								width={1000}
-								height={1000}
-								className='absolute inset-0 w-full h-full object-cover'
-							/>
-							<div className='z-10 bg-white p-3 rounded-2xl md:max-w-120 mt-auto'>
-								<h3 className='text-2xl font-[family-name:var(--font-gerhaus)]'>ДОПОЛНИТЕЛЬНЫЕ ВОЗМОЖНОСТИ</h3>
-								{olympiad.prizes && <p className='mt-2'>• Ценные призы от организаторов и спонсоров</p>}
-								{olympiad.internship && <p className='mt-2'>• Стажировка в ведущих IT-корпорациях</p>}
-								{olympiad.additionalBenefits && <p className='mt-2 font-bold'>• {olympiad.additionalBenefits}</p>}
+						<div className='bg-black p-6 rounded-4xl shadow-lg flex flex-col md:h-[270px] hover:scale-[101%] duration-300'>
+							<div className='flex flex-col gap-4 font-[family-name:var(--font-gerhaus)] lg:text-[30px] md:text-[20px] text-[14px]'>
+								<div className='flex gap-2'>
+									<div className='flex items-center gap-2 bg-black border-3 border-white rounded-full px-4 py-2 w-max'>
+										<span className='text-[#D8C5FF]'>ДЕНЕЖНЫЕ НАГРАДЫ</span>
+									</div>
+									<div className='h-full'>
+										<Image src='/moon-round.png' alt='Денежные награды' width={60} height={60} />
+									</div>
+								</div>
+								<div className='flex gap-2'>
+									<div>
+										<Image src='/energy-round.png' alt='Статьи' width={60} height={60} />
+									</div>
+									<div className='flex items-center gap-2 bg-black border-3 border-white rounded-full px-4 py-2 w-max'>
+										<span className='text-[#D8C5FF]'>СТАЖИРОВКИ В IT-КОМПАНИЯХ</span>
+									</div>
+								</div>
 							</div>
+							<h3 className='text-[#D8C5FF] text-4xl font-[family-name:var(--font-gerhaus)] mt-4'>ПРИЗЫ</h3>
 						</div>
 					</div>
 				</section>
@@ -245,7 +263,7 @@ export default async function OlympiadPage(props: { params: { id: string } }) {
 						className='relative block w-full overflow-hidden rounded-4xl hover:scale-[101%] transition-transform duration-300'
 					>
 						{/* Фоновое изображение */}
-						<div className='relative w-full h-[370px]'>
+						<div className='relative w-full md:h-[370px] h-[270px]'>
 							<div className='absolute inset-0 bg-[#141414]'></div>
 							<Image
 								src='/join.png'

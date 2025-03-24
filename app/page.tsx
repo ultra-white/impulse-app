@@ -89,7 +89,7 @@ export default function Home() {
 
 				<a
 					href='#start_with_us'
-					className='sm:px-24 sm:w-auto w-full py-2 mt-4 md:hidden bg-[#D8C5FF] text-black lg:text-2xl md:text-lg text-sm font-bold rounded-full cursor-pointer'
+					className='sm:px-24 sm:w-auto w-full py-2 mt-4 md:hidden bg-[#D8C5FF] text-black lg:text-2xl md:text-lg text-sm font-bold rounded-full cursor-pointer text-center'
 				>
 					Начни развиваться с нами
 				</a>

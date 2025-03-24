@@ -163,7 +163,7 @@
 		"groups": "Студенты колледжей, старшеклассники Москвы",
 		"prizes": true,
 		"internship": true,
-		"registrationLink": "https://moskovsskie-mastera.moscow"
+		"registrationLink": "https://prof.mcrpo.ru/?ysclid=m8ndy7bofi324869161"
 	},
 	{
 		"id": 5,
@@ -238,6 +238,6 @@
 		"groups": "Школьники Москвы, команды от образовательных учреждений",
 		"prizes": true,
 		"internship": false,
-		"registrationLink": "https://pokoleniy.mosmetod.ru"
+		"registrationLink": "https://pokolenie.cpm77.ru/?ysclid=m8ndyzinoq219725489"
 	}
 ]
